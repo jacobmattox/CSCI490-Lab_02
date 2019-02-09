@@ -1,5 +1,6 @@
 package com.introtoandroid.intentdemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,6 +20,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setBackground = (Button) findViewById(R.id.setBackground);
+
+        setBackground.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), newClickActivity.class);
+                startActivityForResult(i, LOOKING_FOR_RETURN);
+
+            }
+        });
             }
         }
 

@@ -9,7 +9,7 @@
     tools:showIn="@layout/activity_main">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/setBackground"
         android:layout_width="189dp"
         android:layout_height="44dp"
         android:layout_marginTop="8dp"
