@@ -1,11 +1,17 @@
 package com.introtoandroid.intentdemo;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
+import android.support.constraint.Constraints;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,7 +38,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
             }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == LOOKING_FOR_RETURN && resultCode == Activity.RESULT_OK){
+            Bundle extra = data.getExtras();
+            if(extra != null){
+                int image = extra.getInt(getString(R.string.imageID));
+                ConstraintLayout layout = findViewById(R.id.activity_main);
+                layout.setBackground(getDrawable(image));
+            }
+
+
         }
+    }
+}
+
 
 
 
